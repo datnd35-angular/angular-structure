@@ -1,3 +1,103 @@
+# 🌟 Cấu trúc mã và các best practices trong Angular  
+## Hướng dẫn xây dựng dự án Angular dễ bảo trì và mở rộng
+
+Việc xây dựng các ứng dụng Angular mạnh mẽ và có khả năng mở rộng đòi hỏi cần phải tổ chức mã một cách hợp lý và tuân thủ các best practices. Trong bài viết này, chúng ta sẽ cùng tìm hiểu các hướng dẫn và kỹ thuật quan trọng giúp bạn cấu trúc code Angular hiệu quả hơn. Làm đúng từ đầu sẽ giúp dự án dễ bảo trì, dễ đọc và mở rộng trong tương lai.
+
+## 📦 Tổ chức Module
+
+Nếu bạn sử dụng kiến trúc dựa trên module trong Angular, hãy tổ chức các module một cách hợp lý. Điều này giúp mã nguồn rõ ràng và dễ bảo trì hơn.
+
+**Một số lưu ý:**
+- Nhóm các thành phần (component), directive và service liên quan vào cùng một feature module.
+- Tạo một `SharedModule` để chứa các thành phần, directive và pipe được dùng chung.
+- Dùng **lazy loading** để tải module theo yêu cầu, cải thiện hiệu năng ứng dụng.
+
+👉 Nếu bạn dùng **standalone component**, hãy chú trọng vào kiến trúc tổ chức hợp lý. Standalone giúp bạn linh hoạt hơn, nhưng bạn sẽ phải tự thiết kế cấu trúc. Tổ chức tốt sẽ mang lại khả năng **tái sử dụng code và mở rộng dễ dàng**.
+
+
+## 🧩 Cấu trúc Component
+
+Component là trung tâm trong Angular. Việc tổ chức component nhất quán giúp tăng tính dễ đọc và khả năng tái sử dụng.
+
+**Best practices:**
+- Mỗi file component nên chỉ đảm nhiệm một trách nhiệm (single responsibility).
+- Tách riêng class, template và style ra các file khác nhau để dễ quản lý.
+- Giữ component nhỏ và chuyên biệt. Khi quá lớn, hãy tách thành nhiều component nhỏ.
+- Tận dụng các **lifecycle hooks** của Angular để xử lý khởi tạo và huỷ component.
+
+
+## 🛠️ Services và Dependency Injection
+
+Service cung cấp logic tái sử dụng và kết nối giữa các component.
+
+**Lưu ý khi sử dụng:**
+- Dùng hệ thống **Dependency Injection** của Angular để cung cấp và inject service.
+- Service nên tập trung vào một chức năng cụ thể.
+- Tránh viết quá nhiều logic trong service – hãy tuân thủ **nguyên lý đơn trách nhiệm (SRP)**.
+- Tận dụng **phạm vi cung cấp** để chia sẻ service một cách tối ưu (ví dụ: module-level providers).
+
+
+## 📁 Quy ước đặt tên file & thư mục
+
+Quy ước đặt tên rõ ràng sẽ cải thiện khả năng đọc và bảo trì code.
+
+**Tips:**
+- Đặt tên mô tả cho file, thư mục và biến để dễ hiểu.
+- Dùng định dạng nhất quán: `camelCase`, `kebab-case`, v.v.
+- Thêm prefix mang ý nghĩa cho component, service, directive để tránh trùng lặp tên.
+
+## 🗂️ Cấu trúc file và thư mục
+
+Một cấu trúc thư mục tốt là nền tảng cho khả năng mở rộng và bảo trì. Dưới đây là ví dụ cấu trúc gợi ý cho ứng dụng Angular dựa trên module:
+
+```
+app/
+├── core/
+│   ├── constants/
+│   ├── guards/
+│   ├── interceptors/
+│   ├── models/
+│   └── services/
+├── modules/
+│   ├── feature1/
+│   │   ├── components/
+│   │   ├── services/
+│   │   └── feature1.module.ts
+│   └── feature2/
+│       ├── components/
+│       ├── services/
+│       └── feature2.module.ts
+├── shared/
+│   ├── components/
+│   ├── directives/
+│   ├── pipes/
+│   └── services/
+├── app.component.ts
+├── app.module.ts
+├── app-routing.module.ts
+├── app.component.html
+├── app.component.scss
+└── main.ts
+```
+
+
+## 🔁 RxJS và Observables
+
+RxJS là thư viện mạnh mẽ để xử lý bất đồng bộ trong Angular. Angular tích hợp sẵn RxJS nên việc tận dụng là rất quan trọng.
+
+**Best practices với RxJS:**
+- Dùng các operator như `map`, `filter`, `switchMap` để xử lý stream dữ liệu.
+- **Unsubscribe** khi không còn cần thiết để tránh rò rỉ bộ nhớ.
+- Dùng **async pipe** trong template để tự động subscribe và unsubscribe.
+- Tránh nested observable. Hãy dùng các operator như `switchMap`, `mergeMap`, `concatMap`, `combineLatest` tuỳ theo nhu cầu.
+
+## ✅ Kết luận
+
+Bằng cách áp dụng các nguyên tắc cấu trúc mã và best practices trong dự án Angular, bạn có thể:
+- Cải thiện khả năng bảo trì
+- Nâng cao tính rõ ràng
+- Tăng khả năng mở rộng ứng dụng
+
 
 
 **Cấu trúc file workspace và dự án**  
