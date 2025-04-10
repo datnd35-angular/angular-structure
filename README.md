@@ -1,4 +1,4 @@
-# 🌟 Cấu trúc mã và các best practices trong Angular  
+# 1. Cấu trúc mã và các best practices trong Angular  
 ## Hướng dẫn xây dựng dự án Angular dễ bảo trì và mở rộng
 
 Việc xây dựng các ứng dụng Angular mạnh mẽ và có khả năng mở rộng đòi hỏi cần phải tổ chức mã một cách hợp lý và tuân thủ các best practices. Trong bài viết này, chúng ta sẽ cùng tìm hiểu các hướng dẫn và kỹ thuật quan trọng giúp bạn cấu trúc code Angular hiệu quả hơn. Làm đúng từ đầu sẽ giúp dự án dễ bảo trì, dễ đọc và mở rộng trong tương lai.
@@ -100,7 +100,7 @@ Bằng cách áp dụng các nguyên tắc cấu trúc mã và best practices tr
 
 
 
-**Cấu trúc file workspace và dự án**  
+# 2. **Cấu trúc file workspace và dự án**  
 
 ### **Workspace và dự án trong Angular**  
 Bạn phát triển ứng dụng trong một **workspace Angular**. Workspace chứa các file cho một hoặc nhiều dự án. Một **dự án** là tập hợp các file tạo thành một ứng dụng hoặc một thư viện có thể chia sẻ.  
